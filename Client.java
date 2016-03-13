@@ -34,8 +34,8 @@ public class Client {
             writer.flush();
             
             String response = null; 
-            while((response = reader.readLine()) != null)    {
-                if(response.equalsIgnoreCase("finished")) 
+            while ((response = reader.readLine()) != null)    {
+                if (response.equalsIgnoreCase("finished")) 
                     break;
                 
                 System.out.println(response); 
@@ -58,7 +58,7 @@ public class Client {
             try {
                 String input;
                 BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in)); 
-                System.out.print("Enter choice (1 - Input_type_keyboard || 2 - Input_type_file): ");
+                System.out.print("Enter choice (1 - Data input from keyboard || 2 - Data input from file): ");
                 ch = keyboard.readLine();
                 System.out.println("");
 
@@ -73,7 +73,7 @@ public class Client {
                     
                     BufferedReader file = new BufferedReader(new FileReader("input.txt"));
                     
-                    while((input = file.readLine()) != null) { 
+                    while ((input = file.readLine()) != null) { 
                    
                         if (input.equalsIgnoreCase("stop")) { 
                             break;
