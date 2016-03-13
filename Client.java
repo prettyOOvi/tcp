@@ -1,4 +1,4 @@
-package TamGiac_TCP;
+package Triangle_TCP;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -26,23 +26,23 @@ public class Client {
         try {
             client = new Socket("localhost", 1234); 
             
-            BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
-            PrintWriter out = new PrintWriter(new OutputStreamWriter(client.getOutputStream())); 
+            BufferedReader reader = new BufferedReader(new InputStreamReader(client.getInputStream()));
+            PrintWriter writer = new PrintWriter(new OutputStreamWriter(client.getOutputStream())); 
             
-            out.write(input);
-            out.write('\n');
-            out.flush();
+            writer.write(input);
+            writer.write('\n');
+            writer.flush();
             
             String response = null; 
-            while((response = in.readLine()) != null)    {
+            while((response = reader.readLine()) != null)    {
                 if(response.equalsIgnoreCase("finished")) 
                     break;
                 
                 System.out.println(response); 
             }
              
-            in.close();
-            out.close();
+            reader.close();
+            writer.close();
             client.close();
             
         } catch (UnknownHostException ex) {
@@ -69,14 +69,13 @@ public class Client {
                     System.out.println("Input: " + input);
                     calculator(input); 
                     System.out.println("----------------------------------------");
-                }
-                else if(ch.equalsIgnoreCase("2")) {
+                }   else if (ch.equalsIgnoreCase("2")) {
                     
                     BufferedReader file = new BufferedReader(new FileReader("input.txt"));
                     
                     while((input = file.readLine()) != null) { 
                    
-                        if(input.equalsIgnoreCase("stop")) { 
+                        if (input.equalsIgnoreCase("stop")) { 
                             break;
                         }
                        
