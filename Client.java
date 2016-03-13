@@ -48,7 +48,7 @@ public class Client {
         } catch (UnknownHostException ex) {
         } catch (IOException ex) {
             ex.printStackTrace(); 
-            // sout ex.getMessage();
+            // sout (ex.getMessage());
         }
     }
     
