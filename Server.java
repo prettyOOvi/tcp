@@ -94,12 +94,9 @@ public class Server {
     
     public double side(int x1, int y1, int x2, int y2) {
         return Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
-
     }
     
     private TriangleType checkTriangle(int x1, int y1, int x2, int y2, int x3, int y3)	{
-	TriangleType type = TriangleType.KHONG_PHAI_TAM_GIAC;
-		
 	double sideAB =  side(x1, y1, x2, y2);
 	double sideBC =  side(x2, y2, x3, y3); 
 	double sideCA =  side(x3, y3, x1, y1); 
@@ -135,14 +132,13 @@ public class Server {
         return false;
     }
 
-    private double triangleArea(double p, double a, double b, double c) {
+    private double triangleArea(double a, double b, double c) {
+    	double p;
         p = p/2; 
         return Math.sqrt(p * (p - a) * (p - b) * (p - c));
     }
-
-	
+    
     public static void main(String[] args) {
 	new Server();
     }
-	
 }
