@@ -42,7 +42,7 @@ public class Client {
         } catch (IOException ex) {
             ex.printStackTrace(); 
             // sout (ex.getMessage());
-        }   finally {
+        } finally {
             reader.close();
             writer.close();
             client.close();
