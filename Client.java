@@ -41,15 +41,19 @@ public class Client {
                 System.out.println(response); 
             }
              
-            reader.close();
-            writer.close();
-            client.close();
+            
             
         } catch (UnknownHostException ex) {
         } catch (IOException ex) {
             ex.printStackTrace(); 
             // sout (ex.getMessage());
+        }   finally {
+            reader.close();
+            writer.close();
+            client.close();
+            
         }
+       
     }
     
     public static void main(String[] args) {
