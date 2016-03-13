@@ -88,12 +88,14 @@ public class Server {
             writer.write("\n");
             writer.flush();
             
-            reader.close();
-            writer.close();
-            client.close();
+            
 
         } catch (IOException ex) {
             ex.printStackTrace();
+        } finally {
+ 	    reader.close();
+            writer.close();
+            client.close();
         }
     }
 
@@ -133,7 +135,7 @@ public class Server {
         double sPBC = triangleArea(PB + PC + BC, PB, PC, BC);
         double sPCA = triangleArea(PC + PA + CA, PC, PA, CA);
         
-        if(sPAB + sPBC + sPCA == sABC) return true;
+        if (sPAB + sPBC + sPCA == sABC) return true;
         return false;
     }
 
