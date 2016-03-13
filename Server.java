@@ -1,4 +1,4 @@
-package Triangle_TCP;
+package triangle_TCP;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -99,9 +99,9 @@ public class Server {
     private TriangleType checkTriangle(int x1, int y1, int x2, int y2, int x3, int y3)	{
 	TriangleType type = TriangleType.KHONG_PHAI_TAM_GIAC;
 		
-	double ab = Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2)); 
-	double bc = Math.sqrt((x2 - x3) * (x2 - x3) + (y2 - y3) * (y2 - y3)); 
-	double ca = Math.sqrt((x1 - x3) * (x1 - x3) + (y1 - y3) * (y1 - y3)); 
+	double sideAB = Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2)); 
+	double sideBC = Math.sqrt((x2 - x3) * (x2 - x3) + (y2 - y3) * (y2 - y3)); 
+	double sideCA = Math.sqrt((x1 - x3) * (x1 - x3) + (y1 - y3) * (y1 - y3)); 
 	
 	if(ab + bc > ca || ab + ca > bc || bc + ca > ab)
         {type = TriangleType.TAM_GIAC;
