@@ -58,7 +58,7 @@ public class Server {
             switch (check) 
             {
                 case TAM_GIAC:
-                    writer.write("Tam giac thuong");
+                    writer.write("It is normal triangle");
                     writer.write("\n\n"); 
                     break;
                 case TAM_GIAC_VUONG:
@@ -66,15 +66,15 @@ public class Server {
                     writer.write("\n\n");
                     break;
                 case TAM_GIAC_CAN:
-                    writer.write("Tam giac can");
+                    writer.write("It is isosceles triangle");
                     writer.write("\n\n");
                     break;
                 case TAM_GIAC_DEU:
-                    writer.write("Tam giac deu");
+                    writer.write("It is equilateral triangle");
                     writer.write("\n\n");
                     break;
                 default:
-                    writer.write("Khong phai tam giac");
+                    writer.write("It is not Triangle!");
                     writer.write("\n\n");
                     writer.flush();
                     
