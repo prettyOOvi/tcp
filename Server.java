@@ -98,13 +98,18 @@ public class Server {
             client.close();
         }
     }
+    
+    public double side(int x1, int y1, int x2, int y2) {
+        return Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
 
+    }
+    
     private TriangleType checkTriangle(int x1, int y1, int x2, int y2, int x3, int y3)	{
 	TriangleType type = TriangleType.KHONG_PHAI_TAM_GIAC;
 		
-	double sideAB = Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2)); 
-	double sideBC = Math.sqrt((x2 - x3) * (x2 - x3) + (y2 - y3) * (y2 - y3)); 
-	double sideCA = Math.sqrt((x1 - x3) * (x1 - x3) + (y1 - y3) * (y1 - y3)); 
+	double sideAB =  side(x1, y1, x2, y2);
+	double sideBC =  side(x2, y2, x3, y3); 
+	double sideCA =  side(x3, y3, x1, y1); 
 	
 	if (sideAB + sideBC > sideCA || sideAB + sideCA > sideBC || sideBC + sideCA > sideAB)
         {type = TriangleType.TAM_GIAC;
