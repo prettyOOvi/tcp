@@ -123,19 +123,17 @@ public class Server {
         double PB = Math.sqrt((px - x2) * (px - x2) + (py - y2) * (py - y2));
         double PC = Math.sqrt((px - x3) * (px - x3) + (py - y3) * (py - y3));
         
-        double sABC = triangleArea(AB + BC + CA, AB, BC, CA);
-        double sPAB = triangleArea(PA + PB + AB, PA, PB, AB);
-        double sPBC = triangleArea(PB + PC + BC, PB, PC, BC);
-        double sPCA = triangleArea(PC + PA + CA, PC, PA, CA);
+        double sABC = triangleArea(AB, BC, CA);
+        double sPAB = triangleArea(PA, PB, AB);
+        double sPBC = triangleArea(PB, PC, BC);
+        double sPCA = triangleArea(PC, PA, CA);
         
         if (sPAB + sPBC + sPCA == sABC) return true;
         return false;
     }
 
     private double triangleArea(double a, double b, double c) {
-    	double p;
-        p = p/2; 
-        return Math.sqrt(p * (p - a) * (p - b) * (p - c));
+        return Math.sqrt((a+b+c)/2 * ((a+b+c)/2 - a) * ((a+b+c)/2 - b) * ((a+b+c)/2 - c));
     }
     
     public static void main(String[] args) {
