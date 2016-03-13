@@ -30,7 +30,8 @@ public class Server {
 		handleClientConnection(client);
             }		
 	} catch (IOException e) {
-		}
+		 ex.printStackTrace();
+	 }
     }	
 	
     int[] parseInput(String input)  {
@@ -127,10 +128,10 @@ public class Server {
         double PB = Math.sqrt((px - x2) * (px - x2) + (py - y2) * (py - y2));
         double PC = Math.sqrt((px - x3) * (px - x3) + (py - y3) * (py - y3));
         
-        double sABC = dienTichTamGiac(AB + BC + CA, AB, BC, CA);
-        double sPAB = dienTichTamGiac(PA + PB + AB, PA, PB, AB);
-        double sPBC = dienTichTamGiac(PB + PC + BC, PB, PC, BC);
-        double sPCA = dienTichTamGiac(PC + PA + CA, PC, PA, CA);
+        double sABC = triangleArea(AB + BC + CA, AB, BC, CA);
+        double sPAB = triangleArea(PA + PB + AB, PA, PB, AB);
+        double sPBC = triangleArea(PB + PC + BC, PB, PC, BC);
+        double sPCA = triangleArea(PC + PA + CA, PC, PA, CA);
         
         if(sPAB + sPBC + sPCA == sABC) return true;
         return false;
