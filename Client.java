@@ -9,9 +9,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-
 public class Client {
-    
     public static String inputFromKeyboard() throws IOException  {
         String input = "";
         BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in)); 
@@ -22,7 +20,6 @@ public class Client {
     }
     private static Socket client;
     public static void calculator(String input)   {
-        
         try {
             client = new Socket("localhost", 1234); 
             
@@ -41,8 +38,6 @@ public class Client {
                 System.out.println(response); 
             }
              
-            
-            
         } catch (UnknownHostException ex) {
         } catch (IOException ex) {
             ex.printStackTrace(); 
@@ -51,9 +46,7 @@ public class Client {
             reader.close();
             writer.close();
             client.close();
-            
         }
-       
     }
     
     public static void main(String[] args) {
