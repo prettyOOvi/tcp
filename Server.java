@@ -83,13 +83,6 @@ public class Server {
                     writer.flush();
                     break;
             }
-            
-            writer.write("finished");
-            writer.write("\n");
-            writer.flush();
-            
-            
-
         } catch (IOException ex) {
             ex.printStackTrace();
         } finally {
