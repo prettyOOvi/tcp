@@ -111,19 +111,17 @@ public class Server {
 	double sideBC =  side(x2, y2, x3, y3); 
 	double sideCA =  side(x3, y3, x1, y1); 
 	
-	if (sideAB + sideBC > sideCA || sideAB + sideCA > sideBC || sideBC + sideCA > sideAB)
-        {type = TriangleType.TAM_GIAC;
-		
-	if ( (sideAB * sideAB + sideBC * sideBC == sideCA * sideCA) || (sideAB * sideAB + sideCA * sideCA == sideBC * sideBC) || (sideBC * sideBC + sideCA * sideCA == sideAB * sideAB))
-		type = TriangleType.TAM_GIAC_VUONG;
-		
-	if ( (sideAB == sideBC && sideAB == sideCA) || (sideBC == sideAB && sideBC == sideCA) || (sideCA == sideAB && sideCA == sideBC))
-		type = TriangleType.TAM_GIAC_CAN;
-			
-	if (sideAB == sideBC && sideBC == sideCA) 
-		type = TriangleType.TAM_GIAC_DEU;
+	if (sideAB == sideBC && sideBC == sideCA)
+            return TriangleType.TAM_GIAC_DEU; 
+        if (sideAB == sideBC || sideBC == sideCA || sideCA == sideAB)
+        {
+            if (sideAB*sideAB + sideBC*sideBC == sideCA*sideCA || sideAB*sideAB + sideCA*sideCA == sideBC*sideBC || sideBC*sideBC + sideCA*sideCA == sideAB*sideAB)
+                return TriangleType.TAM_GIAC_VUONG;
+            return TriangleType.TAM_GIAC_CAN; 
         }
-        return type;
+        if (sideAB*sideAB + sideBC*sideBC == sideCA*sideCA || sideAB*sideAB + sideCA*sideCA == sideBC*sideBC || sideBC*sideBC + sideCA*sideCA == sideAB*sideAB)
+                return TriangleType.TAM_GIAC_VUONG; 
+        return TriangleType.TAM_GIAC;
     }
         
     private boolean isPointInsideTriangle(int px, int py, int x1, int y1, int x2, int y2, int x3, int y3) {
