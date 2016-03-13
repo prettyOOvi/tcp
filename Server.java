@@ -104,16 +104,16 @@ public class Server {
 	double sideBC = Math.sqrt((x2 - x3) * (x2 - x3) + (y2 - y3) * (y2 - y3)); 
 	double sideCA = Math.sqrt((x1 - x3) * (x1 - x3) + (y1 - y3) * (y1 - y3)); 
 	
-	if(ab + bc > ca || ab + ca > bc || bc + ca > ab)
+	if (sideAB + sideBC > sideCA || sideAB + sideCA > sideBC || sideBC + sideCA > sideAB)
         {type = TriangleType.TAM_GIAC;
 		
-	if( (ab * ab + bc * bc == ca * ca) || (ab * ab + ca * ca == bc * bc) || (bc * bc + ca * ca == ab * ab))
+	if ( (sideAB * sideAB + sideBC * sideBC == sideCA * sideCA) || (sideAB * sideAB + sideCA * sideCA == sideBC * sideBC) || (sideBC * sideBC + sideCA * sideCA == sideAB * sideAB))
 		type = TriangleType.TAM_GIAC_VUONG;
 		
-	if( (ab == bc && ab == ca) || (bc == ab && bc == ca) || (ca == ab && ca == bc))
+	if ( (sideAB == sideBC && sideAB == sideCA) || (sideBC == sideAB && sideBC == sideCA) || (sideCA == sideAB && sideCA == sideBC))
 		type = TriangleType.TAM_GIAC_CAN;
 			
-	if(ab == bc && bc == ca) 
+	if (sideAB == sideBC && sideBC == sideCA) 
 		type = TriangleType.TAM_GIAC_DEU;
         }
         return type;
