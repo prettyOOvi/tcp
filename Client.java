@@ -58,11 +58,11 @@ public class Client {
             try {
                 String input;
                 BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in)); 
-                System.out.print("Chon phuong thuc nhap du lieu (1 - Nhap tu ban phim || 2 - Nhap tu file): ");
+                System.out.print("Enter choice (1 - keyboard || 2 - file): ");
                 ch = keyboard.readLine();
                 System.out.println("");
 
-                if(ch.equalsIgnoreCase("1")) { 
+                if  (ch.equalsIgnoreCase("1")) { 
                     input = inputFromKeyboard();
                     System.out.println("");
                     System.out.println("----------------------------------------");
