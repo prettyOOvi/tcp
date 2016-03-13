@@ -1,4 +1,4 @@
-package TamGiac_TCP;
+package Triangle_TCP;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -46,10 +46,10 @@ public class Server {
     public void handleClientConnection(Socket client)   {
         try {
         	
-            BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream())); 
-            PrintWriter out = new PrintWriter(new OutputStreamWriter(client.getOutputStream())); 
+            BufferedReader reader = new BufferedReader(new InputStreamReader(client.getInputStream())); 
+            PrintWriter writer = new PrintWriter(new OutputStreamWriter(client.getOutputStream())); 
             
-            String input = in.readLine(); 
+            String input = reader.readLine(); 
             int[] array = parseInput(input);
             
             TriangleType check = checkTriangle(array[0], array[1], array[2], array[3], array[4], array[5]);
@@ -57,38 +57,38 @@ public class Server {
             switch (check) 
             {
                 case TAM_GIAC:
-                    out.write("Tam giac thuong");
-                    out.write("\n\n"); 
+                    writer.write("Tam giac thuong");
+                    writer.write("\n\n"); 
                     break;
                 case TAM_GIAC_VUONG:
-                    out.write("Tam giac vuong"); 
-                    out.write("\n\n");
+                    writer.write("Tam giac vuong"); 
+                    writer.write("\n\n");
                     break;
                 case TAM_GIAC_CAN:
-                    out.write("Tam giac can");
-                    out.write("\n\n");
+                    writer.write("Tam giac can");
+                    writer.write("\n\n");
                     break;
                 case TAM_GIAC_DEU:
-                    out.write("Tam giac deu");
-                    out.write("\n\n");
+                    writer.write("Tam giac deu");
+                    writer.write("\n\n");
                     break;
                 default:
-                    out.write("Khong phai tam giac");
-                    out.write("\n\n");
-                    out.flush();
+                    writer.write("Khong phai tam giac");
+                    writer.write("\n\n");
+                    writer.flush();
                     
-                    out.write("finished"); 
-                    out.write("\n");
-                    out.flush();
+                    writer.write("finished"); 
+                    writer.write("\n");
+                    writer.flush();
                     break;
             }
             
-            out.write("finished");
-            out.write("\n");
-            out.flush();
+            writer.write("finished");
+            writer.write("\n");
+            writer.flush();
             
-            in.close();
-            out.close();
+            reader.close();
+            writer.close();
             client.close();
 
         } catch (IOException ex) {
@@ -136,7 +136,7 @@ public class Server {
         return false;
     }
 
-    private double dienTichTamGiac(double p, double a, double b, double c) {
+    private double triangleArea(double p, double a, double b, double c) {
         p = p/2; 
         return Math.sqrt(p * (p - a) * (p - b) * (p - c));
     }
