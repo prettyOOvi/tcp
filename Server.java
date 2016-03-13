@@ -47,8 +47,10 @@ public class Server {
     public void handleClientConnection(Socket client)   {
         try {
         	
-            BufferedReader reader = new BufferedReader(new InputStreamReader(client.getInputStream())); 
-            PrintWriter writer = new PrintWriter(new OutputStreamWriter(client.getOutputStream())); 
+            BufferedReader reader = new BufferedReader(
+            	new InputStreamReader(client.getInputStream())); 
+            PrintWriter writer = new PrintWriter(
+            	new OutputStreamWriter(client.getOutputStream())); 
             
             String input = reader.readLine(); 
             int[] array = parseInput(input);
@@ -105,11 +107,13 @@ public class Server {
             return TriangleType.TAM_GIAC_DEU; 
         if (sideAB == sideBC || sideBC == sideCA || sideCA == sideAB)
         {
-            if (sideAB*sideAB + sideBC*sideBC == sideCA*sideCA || sideAB*sideAB + sideCA*sideCA == sideBC*sideBC || sideBC*sideBC + sideCA*sideCA == sideAB*sideAB)
+            if (sideAB*sideAB + sideBC*sideBC == sideCA*sideCA 
+            		|| sideAB*sideAB + sideCA*sideCA == sideBC*sideBC || sideBC*sideBC + sideCA*sideCA == sideAB*sideAB)
                 return TriangleType.TAM_GIAC_VUONG;
             return TriangleType.TAM_GIAC_CAN; 
         }
-        if (sideAB*sideAB + sideBC*sideBC == sideCA*sideCA || sideAB*sideAB + sideCA*sideCA == sideBC*sideBC || sideBC*sideBC + sideCA*sideCA == sideAB*sideAB)
+        if (sideAB*sideAB + sideBC*sideBC == sideCA*sideCA 
+        		|| sideAB*sideAB + sideCA*sideCA == sideBC*sideBC || sideBC*sideBC + sideCA*sideCA == sideAB*sideAB)
                 return TriangleType.TAM_GIAC_VUONG; 
         return TriangleType.TAM_GIAC;
     }
