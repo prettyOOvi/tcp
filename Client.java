@@ -1,4 +1,4 @@
-package Triangle_TCP;
+package triangle_TCP;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -58,7 +58,7 @@ public class Client {
             try {
                 String input;
                 BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in)); 
-                System.out.print("Enter choice (1 - keyboard || 2 - file): ");
+                System.out.print("Enter choice (1 - Input_type_keyboard || 2 - Input_type_file): ");
                 ch = keyboard.readLine();
                 System.out.println("");
 
