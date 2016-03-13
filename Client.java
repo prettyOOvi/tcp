@@ -58,7 +58,7 @@ public class Client {
             try {
                 String input;
                 BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in)); 
-                System.out.print("Enter choice (1 - Data input from keyboard || 2 - Data input from file): ");
+                System.out.print("Enter choice: (1 - Data input from keyboard || 2 - Data input from file): ");
                 ch = keyboard.readLine();
                 System.out.println("");
 
